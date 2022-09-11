@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import socket from './socket';
+import ListItem from './components/FinannceBlock';
+import { useDispatch } from 'react-redux';
+import { setConnect } from './store/reducer/financeSlice';
+import styled from '@emotion/styled';
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    socket.on('connect_error', () => {
+      setTimeout(() => {
+        socket.connect();
+      }, 1000);
+    });
+
+    socket.on('connect', () => {
+      socket.emit('start');
+      dispatch(setConnect(true));
+    });
+
+    socket.on('disconnect', () => {
+      dispatch(setConnect(false));
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('disconnect');
+      socket.off('connect_error');
+    };
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <ListItem />
+    </Wrapper>
   );
 }
 

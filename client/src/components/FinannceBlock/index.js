@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Container from '@mui/material/Container';
 import FinnanceItem from '../FinnanceItem';
 import { useDispatch, useSelector } from 'react-redux';
-import socket from '../../socket';
+import socket from '../../helpers/socket';
 import { getData } from '../../store/reducer/financeSlice';
 
 const FinannceBlock = () => {

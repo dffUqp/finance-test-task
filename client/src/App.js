@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import socket from './socket';
-import ListItem from './components/FinannceBlock';
+import socket from './helpers/socket';
 import { useDispatch } from 'react-redux';
 import { setConnect } from './store/reducer/financeSlice';
 import styled from '@emotion/styled';
+import FinannceBlock from './components/FinannceBlock';
 
 const Wrapper = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <Wrapper>
-      <ListItem />
+      <FinannceBlock />
     </Wrapper>
   );
 }

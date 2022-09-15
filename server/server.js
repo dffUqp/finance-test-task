@@ -41,7 +41,7 @@ function getQuotes(socket) {
     change: randomValue(0, 200, 2),
     change_percent: randomValue(0, 1, 2),
     dividend: randomValue(0, 1, 2),
-    income: randomValue(0, 2, 2),
+    yield: randomValue(0, 2, 2),
     last_trade_time: utcDate(),
   }));
 

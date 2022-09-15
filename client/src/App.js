@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import socket from './helpers/socket';
 import { useDispatch } from 'react-redux';
 import { setConnect } from './store/reducer/financeSlice';
 import styled from '@emotion/styled';
 import FinannceBlock from './components/FinannceBlock';
+import { socket } from './helpers';
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,8 +1,11 @@
-const formatDate = (value) => {
-  const result = new Date(value).toLocaleString();
-  if (result === 'Invalid Date') {
-    return ' ';
+import moment from 'moment';
+
+const formatDate = (value, format = 'DD/MM/YYYY') => {
+  const result = moment(new Date(value)).format(format);
+  if (result === 'Invalid date') {
+    return '';
   }
+
   return result;
 };
 

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import finannceReducer from './reducer/financeSlice';
+import financeReducer from './reducer/finannce/financeSlice';
 
 export function setupStore(preloadedState = {}) {
   return configureStore({
     reducer: {
-      finannce: finannceReducer,
+      finance: financeReducer,
     },
     preloadedState,
   });

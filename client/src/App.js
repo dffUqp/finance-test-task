@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setConnect } from './store/reducer/financeSlice';
+import { setConnect } from './store/reducer/finannce/financeSlice';
 import styled from '@emotion/styled';
-import FinannceBlock from './components/FinannceBlock';
+import FinanceBlock from './components/FinanceBlock';
 import { socket } from './helpers';
 
 const Wrapper = styled.div`
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <Wrapper>
-      <FinannceBlock />
+      <FinanceBlock />
     </Wrapper>
   );
 }
